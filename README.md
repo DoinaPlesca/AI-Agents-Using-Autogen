@@ -1,6 +1,6 @@
 ## **1. Project Setup**
 
-### 1.1 Create your project folder
+### 1.1 Create project folder
 
 ```bash
 mkdir autogen_assignment2
