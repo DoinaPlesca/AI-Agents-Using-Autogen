@@ -42,3 +42,17 @@ You should now see the following packages installed:
 7. [ ] ollama 0.3.3
 9. [ ] fix-busted-json 0.0.18
 11. [ ] and other dependencies# AI-Agents-Using-Autogen
+
+# 3. Add Mistral API key
+Create a .env file in the project root:
+```
+MISTRAL_API_KEY=your_key
+````
+config.py loads it automatically
+
+# 4. Run Project
+```bash -powershell
+python main.py
+````
+
+
