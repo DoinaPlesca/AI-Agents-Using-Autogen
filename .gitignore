@@ -22,11 +22,6 @@ ENV/
 .idea/
 *.iml
 
-# ---- OS Files ----
-
-# Windows
-Thumbs.db
-Desktop.ini
 
 
 # ---- Logs / Cache ----
