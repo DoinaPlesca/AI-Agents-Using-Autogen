@@ -37,13 +37,8 @@ pip list
 You should now see the following packages installed:
 
 1. [ ] autogen 0.3.1
-2. [ ] 
 3. [ ] autogen-agentchat 0.2.x
-4. [ ] 
 5. [ ] mistralai 1.2.3
-6. [ ] 
 7. [ ] ollama 0.3.3
-8. [ ] 
 9. [ ] fix-busted-json 0.0.18
-10. [ ] 
 11. [ ] and other dependencies# AI-Agents-Using-Autogen
