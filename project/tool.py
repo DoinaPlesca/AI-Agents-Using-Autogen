@@ -1,25 +1,32 @@
 import requests
 
+# URL for the OpenAlex Works API
 OPENALEX_URL = "https://api.openalex.org/works"
 
 ## search engine helper(it talks to a big online db of research papers and filters the results
 def search_research_papers(topic: str, year_filter: str, year: int, min_citations: int):
+
     params = {
         "search": topic,
         "per-page": 50,
         "sort": "cited_by_count:desc"
     }
 
-## sent request to db
-    response = requests.get(OPENALEX_URL, params=params)
+    print("DEBUG: Sending request to OpenAlex…")
+    print(f"URL: {OPENALEX_URL}")
+    print(f"Params: {params}")
 
+## sent the API request
+    response = requests.get(OPENALEX_URL, params=params)
     if response.status_code != 200:
         print("API error:", response.text)
         return []
 
+
 ## return a JSON FORMAT
     works = response.json().get("results", [])
     results = []
+
 
 ## filter the papers based on in/after/before( in =year must be exactly equal; after =year must be larger; before = year must be smaller)
     for w in works:
