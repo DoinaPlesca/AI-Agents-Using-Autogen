@@ -33,9 +33,7 @@ if __name__ == "__main__":
             print("Goodbye!")
             break
 
-        # ------------------------------
-        # MODE 1: Question-answering
-        # ------------------------------
+        # qna
         if mode == "1":
             question = input("Ask your question:\n> ")
 
@@ -45,9 +43,7 @@ if __name__ == "__main__":
             print("\n" + "-"*40 + "\n")
             continue
 
-        # ------------------------------
-        # MODE 2: Research paper search
-        # ------------------------------
+        # Research Paper
         if mode == "2":
             user_query = input("Enter your research query:\n> ")
 
