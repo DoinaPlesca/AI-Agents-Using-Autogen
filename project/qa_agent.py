@@ -1,7 +1,6 @@
 from autogen import AssistantAgent
 from config import LLM_CONFIG
 
-# A simple question-answering agent (no format constraints)
 qa_agent = AssistantAgent(
     name="qa_agent",
     llm_config=LLM_CONFIG,
