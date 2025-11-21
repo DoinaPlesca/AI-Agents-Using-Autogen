@@ -9,8 +9,7 @@ qa_agent = AssistantAgent(
 You are a helpful expert assistant.
 Your job is to answer any general question clearly and concisely.
 Do NOT output any special formatting unless necessary.
-""",
-    code_execution_config={"use_docker": False},
+"""
 )
 
 def ask_question(question: str) -> str:
