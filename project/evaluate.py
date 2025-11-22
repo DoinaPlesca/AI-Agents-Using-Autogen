@@ -13,8 +13,10 @@ eval_agent = AssistantAgent(
 # create a user proxy to automate conversation(no human types anything,everything runs automatically
 user = UserProxyAgent(
     name="student",
-    human_input_mode="NEVER"
+    human_input_mode="NEVER",
+    max_consecutive_auto_reply=1
 )
+
 
 
 # checks if agent did its job correctly
@@ -28,4 +30,7 @@ Agent Output:
 
 Did the agent complete the task correctly?
 """
-    return user.initiate_chat(eval_agent, message=msg)
+    reply = eval_agent.generate_reply(messages=[
+        {"role": "user", "content": msg}
+    ])
+    return reply["content"].strip()
