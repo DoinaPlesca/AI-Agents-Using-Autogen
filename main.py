@@ -1,5 +1,6 @@
 from project.agent import run_agent
 from project.tool import search_research_papers
+from project.evaluate import evaluate
 
 def parse_agent_output(text: str):
     """Convert the agent output into usable parameters."""
@@ -23,7 +24,7 @@ if __name__ == "__main__":
     # user question(request)
     user_query = "Find a research paper on machine learning published after 2018 with at least 500 citations."
 
-    # run the agent to extract parameters
+    # run the agent to assistant to extract the parameters
     extracted = run_agent(user_query)
     print("\nAgent reply:\n", extracted, "\n")
 
@@ -39,3 +40,9 @@ if __name__ == "__main__":
     for r in results:
         print(f"- {r['title']} ({r['year']}) — {r['citations']} citations")
         print(r['url'], "\n")
+
+    print("\nRunning evaluation...\n")
+    evaluation = evaluate(user_query, extracted)
+
+    print("Evaluation result:\n")
+    print(evaluation)

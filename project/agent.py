@@ -49,6 +49,7 @@ def validate_output(text: str):
 
 # takes the user’s question-> sent to AI(assistent)
 # get text and validate
+# control the assistent
 def run_agent(query: str):
     reply = assistant.generate_reply(messages=[{"role": "user", "content": query}])
     content = reply["content"].strip()
