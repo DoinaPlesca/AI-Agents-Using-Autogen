@@ -1,5 +1,5 @@
 from project.agent import run_agent
-from project.evaluate import evaluate
+from project.evaluate_v2 import evaluate
 
 TEST_QUERIES = [
     "Find a research paper on machine learning published after 2018 with at least 500 citations.",
