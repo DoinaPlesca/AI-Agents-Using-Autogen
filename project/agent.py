@@ -32,7 +32,8 @@ Infer missing values if necessary.
 # user agent
 user = UserProxyAgent(
     name="user",
-    human_input_mode="NEVER"
+    human_input_mode="NEVER",
+    max_consecutive_auto_reply=1
 )
 
 # validate the respons
@@ -49,7 +50,6 @@ def validate_output(text: str):
 
 # takes the user’s question-> sent to AI(assistent)
 # get text and validate
-# control the assistent
 def run_agent(query: str):
     reply = assistant.generate_reply(messages=[{"role": "user", "content": query}])
     content = reply["content"].strip()
