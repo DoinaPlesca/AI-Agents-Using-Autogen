@@ -6,18 +6,13 @@ from config import LLM_CONFIG
 eval_agent = AssistantAgent(
     name="eval_agent",
     llm_config=LLM_CONFIG,
-    system_message=(
-        "You evaluate whether the extraction agent correctly extracted the 4 required parameters "
-        "from the user query. "
-        "Reply ONLY with 'Yes' or 'No'. No explanation, no extra words."
-    ),
-    max_consecutive_auto_reply = 1
+    system_message="You evaluate whether the agent completed the task correctly. Reply briefly."
 )
 
 
 # create a user proxy to automate conversation(no human types anything,everything runs automatically
 user = UserProxyAgent(
-    name="user",
+    name="student",
     human_input_mode="NEVER",
     max_consecutive_auto_reply=1
 )
@@ -27,13 +22,15 @@ user = UserProxyAgent(
 # checks if agent did its job correctly
 def evaluate(task_description: str, agent_output: str):
     msg = f"""
-User Query:
+Task:
 {task_description}
 
-Extracted Parameters:
+Agent Output:
 {agent_output}
 
-Question:
-Did the agent correctly extract the four required parameters from the user query?
+Did the agent complete the task correctly?
 """
-    return user.initiate_chat(eval_agent, message=msg)
+    reply = eval_agent.generate_reply(messages=[
+        {"role": "user", "content": msg}
+    ])
+    return reply["content"].strip()
